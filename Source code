@@ -1,0 +1,59 @@
+#create a class
+class Employee:
+    #initialize count to 0
+    count=0
+    #__init__ is a constructor which as set of parameters in it
+    def __init__(a,name,family,salary,dept):
+    #creating set if instances
+        a.name=name
+        a.family=family
+        a.salary=salary
+        a.dept=dept
+        Employee.count = Employee.count+1
+    #defining functions
+    def disCount(a):
+        print("the number of Employees are:",a.count)
+    def avg_sal(a):
+        sum = 0
+        for employee in a:
+            sum= sum+employee.salary
+        return sum/Employee.count
+ #creating a child class       
+class Fulltime_Employee(Employee):
+    def __init__(a,name,family,salary,dept):
+        #super() is used to give access to methods of parent class
+        super().__init__(name,family,salary,dept)
+        
+    def Fulltime_Emp(a):
+        print("Full time employees")
+def main():
+    employees = []
+    #creating instances and calling the member functions 
+    fe1 = Fulltime_Employee("Tejaswini","Sankoju",1000000,"Software")
+    fe1.Fulltime_Emp()
+    employees.append(fe1)
+    fe2 = Fulltime_Employee("Akhil Nagasai","Kuriti",500000,"Machanical")
+    fe1.Fulltime_Emp
+    employees.append(fe2)
+    e1 = Employee ("Vyshali","Gaddam", 1000008,"CIS")
+    employees.append(e1)
+    e2 = Employee ("Divya", "gaddam",50000,"Data engineer")
+    employees.append(e2)
+    #Displaying the count of the employees
+    e1.disCount()
+    print("Avg sal:",Fulltime_Employee.avg_sal(employees))
+if __name__ == "__main__":
+    main()
+    
+    
+    
+    #importing numpy libraries
+import numpy as ny
+x = ny.random.uniform(1,20,20)
+print("random vctr size",x)
+#reshaping the array size
+y = x.reshape((4,5))
+print('reshaping array to 4',y)
+#replacing the maximum value to 0
+z = ny.where(y==ny.amax(y,axis=1).reshape(-1,1),0,y)
+print('replacing maximum in each row by 0',z)
